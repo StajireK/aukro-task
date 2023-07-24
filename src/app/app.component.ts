@@ -16,17 +16,13 @@ export class AppComponent implements OnInit {
   isGrayscaleEnabled: boolean = false;
 
   ngOnInit(): void {
-    console.log("oninit")
     this.getData();
   }
 
   getData() {
-    console.log("getData")
     this.fetchPhotosService.getPhotosAndData().subscribe({
       next: (response) => {
-        console.log("next")
         this.fetchedPhotos = response;
-        console.log(response)
         this.getRandomFour(this.fetchedPhotos?.content);
       },
     });
