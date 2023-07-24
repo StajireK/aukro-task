@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  width: 100%;
+  height: 100vh;
+  max-width: 750px;
+  margin-top: 30px;
+
+  .header {
+    font-size: 24px;
+    padding-bottom: 20px;
+  }
+
+  .action-bar {
+    width: 100%;
+
+    .buttons-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .photos-wrapper {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    @media screen and (max-width: 576px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .photo {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      &.grayscale img {
+        filter: grayscale(100%);
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1.5/1;
+        object-fit: cover;
+        margin: 0;
+      }
+
+      .photo-informations-wrapper {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+
+        .photo-informations {
+          padding: 10px;
+
+          .seller {
+            margin-bottom: 4px;
+          }
+
+          .description {
+            width: 100%;
+            font-size: 12px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            color: lightgray;
+          }
+        }
+      }
+    }
+  }
+
+  .loading-wrapper {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 750px;
+    gap: 40px;
+    color: gray;
+
+    @media screen and (max-width: 749px) {
+      width: 100vw;
+    }
+  }
+}
