@@ -11,7 +11,7 @@ export interface FetchPhotosData {
   seoNiceUrlData: SeoNiceUrlData;
   titlePage: TitlePage;
   links: any[];
-  content: Content2[];
+  content: FetchPhotosItemData[];
   page: Page;
 }
 
@@ -232,7 +232,7 @@ export interface Medium {
   thumbnailReady: boolean;
 }
 
-export interface Content2 {
+export interface FetchPhotosItemData {
   itemId: number;
   itemName: string;
   categoryPath: CategoryPath2[];

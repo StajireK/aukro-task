@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchPhotosService } from './services/fetch-photos.service';
-import { FetchPhotosData } from './models/fetch-photos.model';
+import { FetchPhotosData, FetchPhotosItemData } from './models/fetch-photos.model';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,8 @@ export class AppComponent implements OnInit {
   constructor(private fetchPhotosService: FetchPhotosService) {}
 
   fetchedPhotos?: FetchPhotosData;
-  randomArrayOfPhotos: any[] = [];
-  slicedArray: any[] = [];
+  randomArrayOfPhotos: FetchPhotosItemData[] = [];
+  slicedArray: FetchPhotosItemData[] = [];
   isGrayscaleEnabled: boolean = false;
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  getRandomFour(array: Array<any>) {
+  getRandomFour(array: FetchPhotosItemData[]) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
 
